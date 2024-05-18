@@ -37,8 +37,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $grade= 'Fail';
     }
-    
-    $data = array($name, $roll, $math, $science, $social, $english, $nepali, $total, $percentage, $grade);
+    if($percentage>=50)
+    {
+        $result='Pass';
+    }
+    else{
+        $result='Fail';
+    }
+    $data = array($name, $roll, $math, $science, $social, $english, $nepali, $total, $percentage, $grade, $result);
     $file = fopen('results.csv', 'a');
     fputcsv($file, $data);
     fclose($file);

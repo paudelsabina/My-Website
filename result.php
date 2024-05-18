@@ -16,6 +16,7 @@ if (isset($_GET["roll"]))
             $total = $data[7];
             $percentage = $data[8];
             $grade = $data[9];
+            $result = $data[10];
             break;
         }
     }
@@ -40,27 +41,27 @@ if (isset($_GET["roll"]))
 <center>
 <table border="5px">
 <tr>
-        <th>No.</th> <th> Subjects</th> <th>Full Marks</th> <th>Pass Marks</th> <th> Obtained Marks
+        <th>SUBJECT CODE</th> <th> SUBJECTS</th> <th>FULL MARKS</th> <th>PASS MARKS</th> <th> OBTAINED MARKS</th>
 </tr>
 
 <tr>
-    <td>1.</td><td>math</td><td>100</td><td>50</td><td><?php echo $math; ?></p></td>
+    <td>001</td><td>math</td><td>100</td><td>50</td><td><?php echo $math; ?></p></td>
 </tr>
 
 <tr>
-    <td>2.</td><td>Science</td><td>100</td><td>50</td><td><?php echo $science; ?></p></td>
+    <td>002</td><td>Science</td><td>100</td><td>50</td><td><?php echo $science; ?></p></td>
 </tr>
 
 <tr>
-    <td>3.</td><td>Social</td><td>100</td><td>50</td><td><?php echo $social; ?></p></td>
+    <td>003</td><td>Social</td><td>100</td><td>50</td><td><?php echo $social; ?></p></td>
 </tr>
 
 <tr>
-    <td>4.</td><td>English</td><td>100</td><td>50</td><td><?php echo $english; ?></p></td>
+    <td>004</td><td>English</td><td>100</td><td>50</td><td><?php echo $english; ?></p></td>
 </tr>
 
 <tr>
-    <td>5.</td><td>Nepali</td><td>100</td><td>50</td><td><?php echo $nepali; ?></p></td>
+    <td>005</td><td>Nepali</td><td>100</td><td>50</td><td><?php echo $nepali; ?></p></td>
 </tr>
 
 <tr>
@@ -68,11 +69,10 @@ if (isset($_GET["roll"]))
 </tr>
 
 <tr>
-<td colspan="5">Result:</td>
+<td colspan="5">Result:<?php echo $result; ?></p></td>
 </tr>
 </table>
 </center>
-   <p> <?php echo $total; ?></p>
     <?php echo $percentage; ?>%</p>
     <?php echo $grade; ?></p>
 </body>

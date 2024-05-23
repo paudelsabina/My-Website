@@ -1,5 +1,21 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
+$server= "localhost";
+$username="root";
+$password="";
+$database="ecommerce";
+
+$con= mysqli_connect($server,$username,$password,$database);
+
+if(!$con)
+{
+    echo" not connected";
+}
+
+else
+{
+    echo"connected";
+} 
+if($_SERVER['REQUEST_METHOD'] == 'POST')
  {
     $name = $_POST['name'];
     $roll = $_POST['roll'];

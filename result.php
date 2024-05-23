@@ -34,8 +34,8 @@ if (isset($_GET["roll"]))
     <h2>Sundaraicha-12, Morang</h2>
     <h3> BICTE 3rd Sem</h3>
 </center>
-    <p>Name: <?php echo $name; ?></p>
-    <p>Roll Number: <?php echo $roll; ?></p>
+    <p><strong>Name: <?php echo $name; ?></strong></p>
+    <p><strong>Roll No: <?php echo $roll; ?></strong></p>
 
     <p><center><strong> MARKSHEET</strong></center></p>
 <center>
@@ -65,15 +65,19 @@ if (isset($_GET["roll"]))
 </tr>
 
 <tr>
-    <td colspan="2"></td><td colspan="2">Total Marks</td><td><?php echo $total; ?></p></td>
+   <td colspan="2"> Total Marks </td><td>500</td><td></td><td><?php echo $total; ?></p></td>
 </tr>
 
 <tr>
-<td colspan="5">Result:<?php echo $result; ?></p></td>
+<td colspan="5">Result:<?php echo $result; ?> <br> Percentage:<?php echo $percentage; ?>% <br> Grade:<?php echo $grade; ?> </td>
 </tr>
 </table>
 </center>
-    <?php echo $percentage; ?>%</p>
-    <?php echo $grade; ?></p>
+<br>
+<table border="0px"
+<tr>
+    <p align="left"> Parent Signature: </p> <p align="right">Principal Signature:</p> 
+</tr>
+</table>
 </body>
 </html>

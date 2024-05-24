@@ -1,35 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Student Marks Entry</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="design.css">
 </head>
 <body>
-    <Center>><h2>Enter Student Details and Marks</h2></Center>
-    <form action="process.php" method="post">
-        <center>
-        <label for="name">Student Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+    <header>
+        <h1>Welcome to My Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to our website. We are glad to have you here.</p>
+        </section>
         
-        <label for="roll">Roll Number:</label>
-        <input type="number" id="roll" name="roll" required><br><br>
+        <section id="about">
+            <h2>About</h2>
+            <p>Learn more about web development.</p>
+        </section>
         
-        <label for="subject1">Math Marks:</label>
-        <input type="number" id="math" name="math" required><br><br>
+        <section id="services">
+            <h2>Services</h2>
+            <p>Discover the services we offer to web developer.</p>
+        </section>
         
-        <label for="subject2">Science Marks:</label>
-        <input type="number" id="science" name="science" required><br><br>
-        
-        <label for="subject3">Social Marks:</label>
-        <input type="number" id="social" name="social" required><br><br>
-        
-        <label for="subject4">English Marks:</label>
-        <input type="number" id="english" name="english" required><br><br>
-        
-        <label for="subject5">Nepali Marks:</label>
-        <input type="number" id="nepali" name="nepali" required><br><br>
-        
-        <input type="submit" value="Submit">
-        </center>
-    </form>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Get in touch with us through the following methods:</p>
+            <ul>
+                <li>Email: sabinapaudel59@gmail.com</li>
+                <li>Phone: +9779843349021</li>
+            </ul>
+            <div class="social-media">
+                <a href="https://www.facebook.com" target="_blank">Facebook</a>
+                <a href="https://www.youtube.com" target="_blank">YouTube</a>
+                <a href="https://www.instagram.com" target="_blank">Instagram</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
 </body>
 </html>

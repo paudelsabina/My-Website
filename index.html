@@ -1,53 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sabina Paudel's Portfolio</title>
-  <link rel="stylesheet" href="data.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabina Paudel - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        .nav-container {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            padding: 0 1rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            z-index: 1001;
+            transition: transform 0.2s ease;
+        }
+
+        nav a:active {
+            transform: scale(0.9);
+        }
+
+        .side-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            z-index: 2000;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            transform: translateX(-100%);
+        }
+
+        .side-menu.open {
+            transform: translateX(0);
+        }
+
+        .side-menu ul {
+            display: flex;
+            flex-direction: column;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .side-menu ul li {
+            margin-bottom: 1rem;
+        }
+
+        .hero {
+            height: 100vh;
+            position: relative;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('Sabina.jpg') no-repeat center center/cover;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero * {
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn:hover {
+            opacity: 0.7;
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #contact form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #contact form input,
+        #contact form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+        }
+
+        #contact form button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 0.75rem;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        /* Sparkling Effect */
+        .sparkle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkle 0.5s linear;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Media Queries for Mobile and Tablet */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#helps">Helps</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <div class="nav-container">
+        <h1>Sabina Paudel</h1>
+        <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+        <nav class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
 
-  <main>
-    <section id="about">
-      <h1>Welcome To My Portfolio</h1><br>
-    
-      <img src="E:\ Xampp\htdocs\portfolio\sabina.jpg" alt="Sabina Paudel" class="profile-picture">
-      <p>Its me Sabina  Paudel</p>
-    </section>
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+            <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+    </div>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <p>Showcase the student's skills, expertise, and accomplishments to impress potential employers or clients.</p>
-    </section>
+    <header id="home" class="hero">
+        <h1>Sabina Paudel</h1>
+        <p>Student of BICTE at Sukuna Multiple Campus</p>
+        <a href="#contact" class="btn">Get In Touch</a>
+    </header>
 
-    <section id="helps">
-      <h2>Helps</h2>
-      <p>Offer assistance or guidance for visitors navigating the website or seeking information. </p>
-    </section>
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm a passionate BICTE student at Sukuna Multiple Campus, eager to learn and grow in the field of
+                Information and Communication Technology in Education. I believe in the power of technology to transform
+                educational experiences and am committed to making a positive impact in this field.</p>
+        </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>If you'd like to get in touch with me, feel free to reach out:</p>
-      <p>Email: <a href='sabinapaudel59@gmail.com'>Send Feedback</a></p>
-      <p>Phone: +9779843349021</p>
-      <p>Facebook: <a href="https://www.facebook.com/sabina.paudel.9406?mibextid=ZbWKwL">Sabina Paudel</a></p>
-      <p>I'm always excited to discuss new opportunities, collaborate on projects, or simply connect with like-minded individuals. I look forward to hearing from you!</p>
-    </section>
-  </main>
+        <section id="skills">
+            <h2>My Skills</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS, JavaScript</p>
+                </div>
+                <div class="card">
+                    <h3>Educational Technology</h3>
+                    <p>LMS, E-learning platforms</p>
+                </div>
+                <div class="card">
+                    <h3>Teaching</h3>
+                    <p>Lesson planning, Classroom management</p>
+                </div>
+            </div>
+        </section>
 
-  <footer>
-    <p>&copy; 2024 Sabina Paudel. All rights reserved.</p>
-  </footer>
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Scientific Calculator</h3>
+                    <p>A web-based scientific calculator application.</p>
+                    <a href="calculator.html" class="btn" target="_blank">View Calculator</a>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form action="https://formspree.io/f/sabinapaudel59@gmail.com" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="_replyto" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sabina Paudel. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to toggle side menu
+        function toggleMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            sideMenu.classList.toggle('open');
+        }
+
+        // Sparkling effect
+        document.addEventListener('mousemove', (e) => {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = `${e.pageX}px`;
+            sparkle.style.top = `${e.pageY}px`;
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 500); // Remove sparkle after animation
+        });
+    </script>
 </body>
+
 </html>

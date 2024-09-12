@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabina Paudel - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* Reset and basic styles */
         * {
             margin: 0;
             padding: 0;
@@ -14,23 +15,23 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             overflow-x: hidden;
             position: relative;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: auto;
-            overflow: hidden;
             padding: 0 2rem;
         }
 
+        /* Navigation styles */
         .nav-container {
-            background-color: #333;
+            background-color: #2c3e50;
             color: #fff;
             padding: 1rem;
             position: fixed;
@@ -42,16 +43,15 @@
             align-items: center;
         }
 
+        .nav-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
         .hamburger {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         nav ul {
@@ -66,32 +66,31 @@
         nav a {
             color: #fff;
             text-decoration: none;
-            font-weight: bold;
-            position: relative;
-            z-index: 1001;
-            transition: transform 0.2s ease;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        nav a:active {
-            transform: scale(0.9);
+        nav a:hover {
+            color: #3498db;
         }
 
+        /* Side menu styles */
         .side-menu {
-            display: none;
+            display: block;
             position: fixed;
             top: 0;
-            left: 0;
-            width: 250px;
+            right: -300px; /* Start off-screen on the right */
+            width: 300px;
             height: 100%;
-            background-color: #333;
+            background-color: #2c3e50;
             z-index: 2000;
             padding: 2rem;
-            transition: transform 0.3s ease;
-            transform: translateX(-100%);
+            transition: right 0.3s ease;
+            font-family: 'Roboto Slab', serif;
         }
 
         .side-menu.open {
-            transform: translateX(0);
+            right: 0; /* Move to visible area when open */
         }
 
         .side-menu ul {
@@ -102,9 +101,21 @@
         }
 
         .side-menu ul li {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
+        .side-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .side-menu a:hover {
+            color: #3498db;
+        }
+
+        /* Hero section styles */
         .hero {
             height: 100vh;
             position: relative;
@@ -114,56 +125,49 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: url('Sabina.jpg') no-repeat center center/cover;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        .hero * {
-            z-index: 10;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Sabina.jpg') no-repeat center center/cover;
         }
 
         .hero h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 4rem;
             margin-bottom: 1rem;
         }
 
         .hero p {
+            font-family: 'Roboto Slab', serif;
             font-size: 1.5rem;
             max-width: 600px;
             margin: 1rem auto;
         }
 
+        /* Button styles */
         .btn {
             display: inline-block;
-            background: #333;
+            background: #3498db;
             color: #fff;
             padding: 0.75rem 1.5rem;
             text-decoration: none;
             border-radius: 5px;
-            transition: opacity 0.3s ease;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
         }
 
         .btn:hover {
-            opacity: 0.7;
+            background-color: #2980b9;
         }
 
+        /* Section styles */
         section {
-            padding: 3rem 0;
+            padding: 5rem 0;
         }
 
         section h2 {
+            font-family: 'Playfair Display', serif;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
         }
 
         .grid {
@@ -174,58 +178,61 @@
 
         .card {
             background: #fff;
-            padding: 1rem;
+            padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-family: 'Roboto Slab', serif;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        /* Contact form styles */
         #contact form {
             display: flex;
             flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         #contact form input,
         #contact form textarea {
             margin-bottom: 1rem;
-            padding: 0.5rem;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
         }
 
         #contact form button {
-            background: #333;
+            background: #3498db;
             color: #fff;
             border: none;
-            padding: 0.75rem;
+            padding: 1rem;
             cursor: pointer;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
         }
 
+        #contact form button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Footer styles */
         footer {
-            background: #333;
+            background: #2c3e50;
             color: #fff;
             text-align: center;
-            padding: 1rem 0;
-        }
-
-        /* Sparkling Effect */
-        .sparkle {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background-color: #fff;
-            border-radius: 50%;
-            pointer-events: none;
-            animation: sparkle 0.5s linear;
-        }
-
-        @keyframes sparkle {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            100% {
-                transform: scale(1.5);
-                opacity: 0;
-            }
+            padding: 2rem 0;
+            font-family: 'Roboto Slab', serif;
         }
 
         /* Media Queries for Mobile and Tablet */
@@ -243,11 +250,11 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
 
             .hero p {
-                font-size: 1rem;
+                font-size: 1.2rem;
                 padding: 0 1rem;
             }
 
@@ -277,6 +284,7 @@
         </nav>
     </div>
 
+    <!-- Side menu for mobile view -->
     <div class="side-menu" id="sideMenu">
         <ul>
             <li><a href="#home" onclick="toggleMenu()">Home</a></li>
@@ -353,17 +361,18 @@
             sideMenu.classList.toggle('open');
         }
 
-        // Sparkling effect
-        document.addEventListener('mousemove', (e) => {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.style.left = `${e.pageX}px`;
-            sparkle.style.top = `${e.pageY}px`;
-            document.body.appendChild(sparkle);
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const sideMenu = document.getElementById('sideMenu');
+            const hamburger = document.querySelector('.hamburger');
+            if (!sideMenu.contains(e.target) && e.target !== hamburger) {
+                sideMenu.classList.remove('open');
+            }
+        });
 
-            setTimeout(() => {
-                sparkle.remove();
-            }, 500); // Remove sparkle after animation
+        // Prevent clicks inside the menu from closing it
+        document.getElementById('sideMenu').addEventListener('click', (e) => {
+            e.stopPropagation();
         });
     </script>
 </body>
